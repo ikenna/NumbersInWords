@@ -35,9 +35,21 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(23, "twenty three");
         assertNumberInWords(24, "twenty four");
         assertNumberInWords(29, "twenty nine");
+
+        assertNumberInWords(30, "thirty");
+        assertNumberInWords(31, "thirty one");
+        assertNumberInWords(32, "thirty two");
+        assertNumberInWords(39, "thirty nine");
+
+//        assertNumberInWords(30, "thirty");
+//        assertNumberInWords(31, "thirty one");
+//        assertNumberInWords(32, "thirty two");
+//        assertNumberInWords(39, "thirty nine");
+
+
     }
 
-    // test should give error if cannot work out number or number not within range
+    // test should give error if cannot work out number or number not within range, e.g negative numbers
 
     private void assertNumberInWords(int number, String numberInWords) {
         String actual = new NumberToWordsConverter().convert(number);
