@@ -96,20 +96,26 @@ class TwoWordNumbersBetween20And100 implements NumberWordPattern {
 
 class NumberInTheHundreds implements NumberWordPattern {
 
-    private OneWordNumbers oneWordNumbers = new OneWordNumbers();
+    private TwoWordNumbersBetween20And100 twoWordNumbers = new TwoWordNumbersBetween20And100();
 
     @Override
     public String convertToWords(Integer number) {
+        String result = getNumberOfHundreds(number) + getRemainder(number);
+        return result.trim();
+    }
+
+    private String getRemainder(int number) {
         int remainder = number % 100;
-        int multipleOfHundred = number / 100;
-        String result1 = oneWordNumbers.convertToWords(multipleOfHundred) + " hundred";
-        String result2 = "";
         if (remainder > 0) {
-            result2 = " and " + oneWordNumbers.convertToWords(remainder);
+            return " and " + twoWordNumbers.convertToWords(remainder);
+        } else {
+            return "";
         }
-        return (result1 + result2).trim();
+    }
 
-
+    private String getNumberOfHundreds(Integer number) {
+        int multipleOfHundred = number / 100;
+        return twoWordNumbers.convertToWords(multipleOfHundred) + " hundred";
     }
 
     @Override

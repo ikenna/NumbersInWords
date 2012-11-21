@@ -49,7 +49,11 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(100, "one hundred");
         assertNumberInWords(101, "one hundred and one");
         assertNumberInWords(110, "one hundred and ten");
-//       assertNumberInWords(156, "one hundred and fifty six");
+        assertNumberInWords(156, "one hundred and fifty six");
+        assertNumberInWords(199, "one hundred and ninety nine");
+        assertNumberInWords(200, "two hundred");
+        assertNumberInWords(577, "five hundred and seventy seven");
+        assertNumberInWords(999, "nine hundred and ninety nine");
 
     }
 
