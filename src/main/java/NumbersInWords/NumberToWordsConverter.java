@@ -2,70 +2,42 @@ package NumbersInWords;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import static java.util.Arrays.asList;
 
 public class NumberToWordsConverter {
 
-    private OneWordNumbers oneWordNumbers = new OneWordNumbers();
+    private List<? extends NumberWordPattern> numberWordPatterns;
 
     public NumberToWordsConverter() {
-
+        numberWordPatterns = asList(new OneWordNumbers(), new TwoWordNumbersBetween20And100());
     }
 
     public String convert(Integer number) {
-        if (isInTheTwenties(number)) {
-            return wordsInTheTwenties(number);
+        NumberWordPattern pattern = getPatternFor(number);
+        return pattern.convertToWords(number);
+    }
+
+    private NumberWordPattern getPatternFor(Integer number) {
+        NumberWordPattern result = null;
+        for (NumberWordPattern pattern : numberWordPatterns) {
+            if (pattern.matches(number)) {
+                result = pattern;
+            }
         }
-        if (isInTheThirties(number)) {
-            return wordsInTheThirties(number);
-        }
-        if (isInTheForties(number)) {
-            return wordsInTheForties(number);
-        } else {
-            return oneWordNumbers.getFromWordMap(number);
-        }
-    }
-
-    private boolean isInTheForties(Integer number) {
-        return 40 <= number && number <= 49;
+        return result == null ? new NonExistentPattern() : result;
     }
 
 
-    private String wordsInTheThirties(Integer number) {
-        int remainder = number % 10;
-        String result = "thirty " + oneWordNumbers.getFromWordMap(remainder);
-        return result.trim();
-    }
-
-
-    private String wordsInTheForties(Integer number) {
-        int remainder = number % 10;
-        String result = "forty " + oneWordNumbers.getFromWordMap(remainder);
-        return result.trim();
-    }
-
-
-    private boolean isInTheThirties(Integer number) {
-        return 30 <= number && number <= 39;
-    }
-
-    private boolean isInTheTwenties(Integer number) {
-        return 20 <= number && number <= 29;
-    }
-
-    private String wordsInTheTwenties(Integer number) {
-        int remainder = number % 10;
-        String result = "twenty " + oneWordNumbers.getFromWordMap(remainder);
-        return result.trim();
-    }
 }
 
-class OneWordNumbers {
+class OneWordNumbers implements NumberWordPattern {
     private final Map<Integer, String> wordMap;
 
     OneWordNumbers() {
         wordMap = new HashMap<Integer, String>();
-        wordMap.put(0, "zero");
         wordMap.put(1, "one");
         wordMap.put(2, "two");
         wordMap.put(3, "three");
@@ -85,14 +57,60 @@ class OneWordNumbers {
         wordMap.put(17, "seventeen");
         wordMap.put(18, "eighteen");
         wordMap.put(19, "nineteen");
+        wordMap.put(20, "twenty");
+        wordMap.put(30, "thirty");
+        wordMap.put(40, "forty");
+        wordMap.put(50, "fifty");
+        wordMap.put(60, "sixty");
+        wordMap.put(70, "seventy");
+        wordMap.put(80, "eighty");
+        wordMap.put(90, "ninety");
 
     }
 
-    public String getFromWordMap(Integer number) {
-        if (number == 0) {
-            return "";
-        } else {
-            return wordMap.get(number);
-        }
+    public String convertToWords(Integer number) {
+        return number == 0 ? "" : wordMap.get(number);
     }
+
+    @Override
+    public boolean matches(Integer number) {
+        return wordMap.get(number) != null;
+    }
+}
+
+
+class TwoWordNumbersBetween20And100 implements NumberWordPattern {
+
+    private OneWordNumbers oneWordNumbers = new OneWordNumbers();
+
+    public boolean matches(Integer number) {
+        return 20 < number && number < 100;
+    }
+
+    public String convertToWords(Integer number) {
+        int remainder = number % 10;
+        int multipleOfTen = number - remainder;
+        String result = oneWordNumbers.convertToWords(multipleOfTen) + " " + oneWordNumbers.convertToWords(remainder);
+        return result.trim();
+    }
+}
+
+
+class NonExistentPattern implements NumberWordPattern {
+
+    @Override
+    public String convertToWords(Integer number) {
+        return "Don't know how to convert " + number + " to words";
+    }
+
+    @Override
+    public boolean matches(Integer number) {
+        return false;
+    }
+}
+
+interface NumberWordPattern {
+    String convertToWords(Integer number);
+
+    boolean matches(Integer number);
 }
