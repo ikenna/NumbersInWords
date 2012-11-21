@@ -12,7 +12,7 @@ public class NumberToWordsConverter {
     private List<? extends NumberWordPattern> numberWordPatterns;
 
     public NumberToWordsConverter() {
-        numberWordPatterns = asList(new OneWordNumbers(), new TwoWordNumbersBetween20And100(), new NumberInTheHundreds());
+        numberWordPatterns = asList(new OneWordNumbers(), new TwoWordNumbersBetween20And100(), new NumberInTheHundreds(), new NumberInThousands());
     }
 
     public String convert(Integer number) {
@@ -114,13 +114,43 @@ class NumberInTheHundreds implements NumberWordPattern {
     }
 
     private String getNumberOfHundreds(Integer number) {
-        int multipleOfHundred = number / 100;
-        return twoWordNumbers.convertToWords(multipleOfHundred) + " hundred";
+        if (number >= 100) {
+            int multipleOfHundred = number / 100;
+            return twoWordNumbers.convertToWords(multipleOfHundred) + " hundred";
+        } else return "";
     }
 
     @Override
     public boolean matches(Integer number) {
         return 100 <= number && number < 1000;
+    }
+}
+
+class NumberInThousands implements NumberWordPattern {
+
+    private NumberInTheHundreds hundredsPattern = new NumberInTheHundreds();
+
+    @Override
+    public String convertToWords(Integer number) {
+        return getNumberOfThousands(number) + getRemainder(number);
+    }
+
+    private String getRemainder(Integer number) {
+        int remainder = number % 1000;
+        if (remainder > 0) {
+            return " " + hundredsPattern.convertToWords(remainder);
+        } else {
+            return "";
+        }
+    }
+
+    private String getNumberOfThousands(Integer number) {
+        return "one thousand";
+    }
+
+    @Override
+    public boolean matches(Integer number) {
+        return 1000 <= number && number < 9999;
     }
 }
 

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
 public class NumberToWordsConverterTest {
 
     @Test
-    public void testShouldConvertNumberToWords() throws Exception {
+    public void testShouldConvertSingleDigits() throws Exception {
         assertNumberInWords(1, "one");
         assertNumberInWords(2, "two");
         assertNumberInWords(3, "three");
@@ -18,6 +18,12 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(7, "seven");
         assertNumberInWords(8, "eight");
         assertNumberInWords(9, "nine");
+
+
+    }
+
+    @Test
+    public void testShouldConvertDoubleDigits() throws Exception {
         assertNumberInWords(10, "ten");
         assertNumberInWords(11, "eleven");
         assertNumberInWords(12, "twelve");
@@ -45,7 +51,11 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(41, "forty one");
         assertNumberInWords(49, "forty nine");
 
-        //
+    }
+
+
+    @Test
+    public void testShouldConvertNumbersInHundreds() throws Exception {
         assertNumberInWords(100, "one hundred");
         assertNumberInWords(101, "one hundred and one");
         assertNumberInWords(110, "one hundred and ten");
@@ -54,9 +64,14 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(200, "two hundred");
         assertNumberInWords(577, "five hundred and seventy seven");
         assertNumberInWords(999, "nine hundred and ninety nine");
-
     }
 
+    @Test
+    public void testShouldConvertThousands() throws Exception {
+        assertNumberInWords(1000, "one thousand");
+        assertNumberInWords(1001, "one thousand and one");
+
+    }
 
     @Test
     public void testShouldNotConvertNumbersOutsideRange() throws Exception {
