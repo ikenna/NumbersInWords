@@ -1,22 +1,25 @@
 package net.ikenna.NumbersInWords;
 
-class NumberInThousands implements NumberWordPattern {
+class TensOfThousands implements NumberWordPattern {
+
+    private final int MIN = 1000;
+    private final int MAX = 99999;
 
     @Override
     public boolean matches(Integer number) {
-        return 1000 <= number && number <= 99999;
+        return MIN <= number && number <= MAX;
     }
 
     @Override
     public String convertToWords(Integer number) {
-        int remainder = number % 1000;
-        int multipleOfThousand = number - remainder;
-        return getNumberOfThousands(multipleOfThousand) + getRemainder(remainder);
+        int remainder = number % MIN;
+        int mainNumber = number - remainder;
+        return getMainNumber(mainNumber) + getRemainder(remainder);
     }
 
-    private String getNumberOfThousands(Integer number) {
+    private String getMainNumber(Integer number) {
         if (number > 0) {
-            int twoWordNumber = number / 1000;
+            int twoWordNumber = number / MIN;
             return new TwoWordNumbersBetween20And100().convertToWords(twoWordNumber) + " thousand";
         }
         return "";
