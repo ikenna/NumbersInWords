@@ -5,9 +5,65 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NumberToWordsConverter {
-    private final Map<Integer, String> wordMap;
+
+    private OneWordNumbers oneWordNumbers = new OneWordNumbers();
 
     public NumberToWordsConverter() {
+
+    }
+
+    public String convert(Integer number) {
+        if (isInTheTwenties(number)) {
+            return wordsInTheTwenties(number);
+        }
+        if (isInTheThirties(number)) {
+            return wordsInTheThirties(number);
+        }
+        if (isInTheForties(number)) {
+            return wordsInTheForties(number);
+        } else {
+            return oneWordNumbers.getFromWordMap(number);
+        }
+    }
+
+    private boolean isInTheForties(Integer number) {
+        return 40 <= number && number <= 49;
+    }
+
+
+    private String wordsInTheThirties(Integer number) {
+        int remainder = number % 10;
+        String result = "thirty " + oneWordNumbers.getFromWordMap(remainder);
+        return result.trim();
+    }
+
+
+    private String wordsInTheForties(Integer number) {
+        int remainder = number % 10;
+        String result = "forty " + oneWordNumbers.getFromWordMap(remainder);
+        return result.trim();
+    }
+
+
+    private boolean isInTheThirties(Integer number) {
+        return 30 <= number && number <= 39;
+    }
+
+    private boolean isInTheTwenties(Integer number) {
+        return 20 <= number && number <= 29;
+    }
+
+    private String wordsInTheTwenties(Integer number) {
+        int remainder = number % 10;
+        String result = "twenty " + oneWordNumbers.getFromWordMap(remainder);
+        return result.trim();
+    }
+}
+
+class OneWordNumbers {
+    private final Map<Integer, String> wordMap;
+
+    OneWordNumbers() {
         wordMap = new HashMap<Integer, String>();
         wordMap.put(0, "zero");
         wordMap.put(1, "one");
@@ -29,44 +85,14 @@ public class NumberToWordsConverter {
         wordMap.put(17, "seventeen");
         wordMap.put(18, "eighteen");
         wordMap.put(19, "nineteen");
+
     }
 
-    public String convert(Integer number) {
-        if (isInTheTwenties(number)) {
-            return wordsInTheTwenties(number);
-        }
-        if (isInTheThirties(number)) {
-            return wordsInTheThirties(number);
-        } else {
-            return getFromWordMap(number);
-        }
-    }
-
-    private String getFromWordMap(Integer number) {
+    public String getFromWordMap(Integer number) {
         if (number == 0) {
             return "";
         } else {
             return wordMap.get(number);
         }
-    }
-
-    private String wordsInTheThirties(Integer number) {
-        int remainder = number % 10;
-        String result = "thirty " + getFromWordMap(remainder);
-        return result.trim();
-    }
-
-    private boolean isInTheThirties(Integer number) {
-        return 30 <= number && number <= 39;
-    }
-
-    private boolean isInTheTwenties(Integer number) {
-        return 20 <= number && number <= 29;
-    }
-
-    private String wordsInTheTwenties(Integer number) {
-        int remainder = number % 10;
-        String result = "twenty " + getFromWordMap(remainder);
-        return result.trim();
     }
 }

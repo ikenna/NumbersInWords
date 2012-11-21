@@ -41,15 +41,16 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(32, "thirty two");
         assertNumberInWords(39, "thirty nine");
 
-//        assertNumberInWords(30, "thirty");
-//        assertNumberInWords(31, "thirty one");
-//        assertNumberInWords(32, "thirty two");
-//        assertNumberInWords(39, "thirty nine");
+        assertNumberInWords(40, "forty");
+        assertNumberInWords(41, "forty one");
+        assertNumberInWords(49, "forty nine");
 
 
     }
 
     // test should give error if cannot work out number or number not within range, e.g negative numbers
+
+    // remmber to comment your code
 
     private void assertNumberInWords(int number, String numberInWords) {
         String actual = new NumberToWordsConverter().convert(number);
