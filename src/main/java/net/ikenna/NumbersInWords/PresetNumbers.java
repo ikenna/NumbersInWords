@@ -3,10 +3,10 @@ package net.ikenna.NumbersInWords;
 import java.util.HashMap;
 import java.util.Map;
 
-class OneWordNumbers implements NumberWordPattern {
+class PresetNumbers implements NumberWordPattern {
     private final Map<Integer, String> wordMap;
 
-    OneWordNumbers() {
+    public PresetNumbers() {
         wordMap = new HashMap<Integer, String>();
         wordMap.put(1, "one");
         wordMap.put(2, "two");
@@ -35,15 +35,15 @@ class OneWordNumbers implements NumberWordPattern {
         wordMap.put(70, "seventy");
         wordMap.put(80, "eighty");
         wordMap.put(90, "ninety");
-
-    }
-
-    public String convertToWords(Integer number) {
-        return number == 0 ? "" : wordMap.get(number);
     }
 
     @Override
     public boolean matches(Integer number) {
         return wordMap.get(number) != null;
+    }
+
+    @Override
+    public String convertToWords(Integer number) {
+        return number == 0 ? "" : wordMap.get(number);
     }
 }

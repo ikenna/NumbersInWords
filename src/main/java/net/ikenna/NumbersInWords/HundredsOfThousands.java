@@ -27,6 +27,6 @@ public class HundredsOfThousands implements NumberWordPattern {
 
     private String getMainNumber(int number) {
         int hundreds = number / 1000;
-        return new NumberInTheHundreds().convertToWords(hundreds) + " thousand";
+        return new ThreeDigits().convertToWords(hundreds) + " thousand";
     }
 }

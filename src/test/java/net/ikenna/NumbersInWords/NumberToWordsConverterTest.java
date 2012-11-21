@@ -95,8 +95,6 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(-1, "Don't know how to convert -1 to words");
     }
 
-// test should give error if cannot work out number or number not within range, e.g negative numbers
-
     // remmber to comment your code
 
     private void assertNumberInWords(int number, String numberInWords) {

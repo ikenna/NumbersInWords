@@ -27,7 +27,7 @@ class TensOfThousands implements NumberWordPattern {
 
     private String getRemainder(Integer remainder) {
         if (remainder > 0) {
-            return " " + new NumberInTheHundreds().convertToWords(remainder);
+            return " " + new ThreeDigits().convertToWords(remainder);
         } else {
             return "";
         }
