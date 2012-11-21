@@ -1,4 +1,4 @@
-package NumbersInWords;
+package net.ikenna.NumbersInWords;
 
 import org.junit.Test;
 
@@ -81,8 +81,9 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(10100, "ten thousand one hundred");
         assertNumberInWords(10100, "ten thousand one hundred");
         assertNumberInWords(10101, "ten thousand one hundred and one");
-        assertNumberInWords(10111, "ten thousand one hundred and eleven");
-
+        assertNumberInWords(10111, "ten thousand one hundred and eleven");                  //
+        assertNumberInWords(99000, "ninety nine thousand");
+        //assertNumberInWords(99999, "ninety nine thousand nine hundred and ninety nine");
     }
 
     @Test
