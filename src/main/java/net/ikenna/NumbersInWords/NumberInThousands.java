@@ -12,7 +12,7 @@ class NumberInThousands implements NumberWordPattern {
     }
 
     private String getNumberOfThousands(Integer number) {
-        return hundredsPattern.convertToWords(number / 1000) + " thousand";
+        return new TwoWordNumbersBetween20And100().convertToWords(number / 1000) + " thousand";
     }
 
     private String getRemainder(Integer remainder) {
