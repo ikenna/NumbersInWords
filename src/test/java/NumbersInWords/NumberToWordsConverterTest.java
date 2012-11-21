@@ -58,6 +58,7 @@ public class NumberToWordsConverterTest {
     public void testShouldConvertNumbersInHundreds() throws Exception {
         assertNumberInWords(100, "one hundred");
         assertNumberInWords(101, "one hundred and one");
+        assertNumberInWords(111, "one hundred and eleven");
         assertNumberInWords(110, "one hundred and ten");
         assertNumberInWords(156, "one hundred and fifty six");
         assertNumberInWords(199, "one hundred and ninety nine");
@@ -70,6 +71,17 @@ public class NumberToWordsConverterTest {
     public void testShouldConvertThousands() throws Exception {
         assertNumberInWords(1000, "one thousand");
         assertNumberInWords(1001, "one thousand and one");
+        assertNumberInWords(1010, "one thousand and ten");
+        assertNumberInWords(1100, "one thousand one hundred");
+        assertNumberInWords(1101, "one thousand one hundred and one");
+        assertNumberInWords(1110, "one thousand one hundred and ten");
+        assertNumberInWords(2000, "two thousand");
+        assertNumberInWords(9000, "nine thousand");
+        assertNumberInWords(10000, "ten thousand");
+        assertNumberInWords(10100, "ten thousand one hundred");
+        assertNumberInWords(10100, "ten thousand one hundred");
+        assertNumberInWords(10101, "ten thousand one hundred and one");
+        assertNumberInWords(10111, "ten thousand one hundred and eleven");
 
     }
 

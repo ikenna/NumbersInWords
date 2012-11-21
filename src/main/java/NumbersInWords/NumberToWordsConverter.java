@@ -87,10 +87,14 @@ class TwoWordNumbersBetween20And100 implements NumberWordPattern {
     }
 
     public String convertToWords(Integer number) {
-        int remainder = number % 10;
-        int multipleOfTen = number - remainder;
-        String result = oneWordNumbers.convertToWords(multipleOfTen) + " " + oneWordNumbers.convertToWords(remainder);
-        return result.trim();
+        if (oneWordNumbers.matches(number)) {
+            return oneWordNumbers.convertToWords(number);
+        } else {
+            int remainder = number % 10;
+            int multipleOfTen = number - remainder;
+            String result = oneWordNumbers.convertToWords(multipleOfTen) + " " + oneWordNumbers.convertToWords(remainder);
+            return result.trim();
+        }
     }
 }
 
@@ -100,12 +104,13 @@ class NumberInTheHundreds implements NumberWordPattern {
 
     @Override
     public String convertToWords(Integer number) {
-        String result = getNumberOfHundreds(number) + getRemainder(number);
+        int remainder = number % 100;
+        int multipleOfHundred = number - remainder;
+        String result = getNumberOfHundreds(multipleOfHundred) + getRemainder(remainder);
         return result.trim();
     }
 
-    private String getRemainder(int number) {
-        int remainder = number % 100;
+    private String getRemainder(int remainder) {
         if (remainder > 0) {
             return " and " + twoWordNumbers.convertToWords(remainder);
         } else {
@@ -132,11 +137,12 @@ class NumberInThousands implements NumberWordPattern {
 
     @Override
     public String convertToWords(Integer number) {
-        return getNumberOfThousands(number) + getRemainder(number);
+        int remainder = number % 1000;
+        int multipleOfThousand = number - remainder;
+        return getNumberOfThousands(multipleOfThousand) + getRemainder(remainder);
     }
 
-    private String getRemainder(Integer number) {
-        int remainder = number % 1000;
+    private String getRemainder(Integer remainder) {
         if (remainder > 0) {
             return " " + hundredsPattern.convertToWords(remainder);
         } else {
@@ -145,12 +151,12 @@ class NumberInThousands implements NumberWordPattern {
     }
 
     private String getNumberOfThousands(Integer number) {
-        return "one thousand";
+        return new OneWordNumbers().convertToWords(number / 1000) + " thousand";
     }
 
     @Override
     public boolean matches(Integer number) {
-        return 1000 <= number && number < 9999;
+        return 1000 <= number && number < 99999;
     }
 }
 
