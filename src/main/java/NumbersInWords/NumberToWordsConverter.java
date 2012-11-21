@@ -12,7 +12,7 @@ public class NumberToWordsConverter {
     private List<? extends NumberWordPattern> numberWordPatterns;
 
     public NumberToWordsConverter() {
-        numberWordPatterns = asList(new OneWordNumbers(), new TwoWordNumbersBetween20And100());
+        numberWordPatterns = asList(new OneWordNumbers(), new TwoWordNumbersBetween20And100(), new NumberInTheHundreds());
     }
 
     public String convert(Integer number) {
@@ -29,7 +29,6 @@ public class NumberToWordsConverter {
         }
         return result == null ? new NonExistentPattern() : result;
     }
-
 
 }
 
@@ -95,6 +94,29 @@ class TwoWordNumbersBetween20And100 implements NumberWordPattern {
     }
 }
 
+class NumberInTheHundreds implements NumberWordPattern {
+
+    private OneWordNumbers oneWordNumbers = new OneWordNumbers();
+
+    @Override
+    public String convertToWords(Integer number) {
+        int remainder = number % 100;
+        int multipleOfHundred = number / 100;
+        String result1 = oneWordNumbers.convertToWords(multipleOfHundred) + " hundred";
+        String result2 = "";
+        if (remainder > 0) {
+            result2 = " and " + oneWordNumbers.convertToWords(remainder);
+        }
+        return (result1 + result2).trim();
+
+
+    }
+
+    @Override
+    public boolean matches(Integer number) {
+        return 100 <= number && number < 1000;
+    }
+}
 
 class NonExistentPattern implements NumberWordPattern {
 

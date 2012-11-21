@@ -45,8 +45,14 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(41, "forty one");
         assertNumberInWords(49, "forty nine");
 
+        //
+        assertNumberInWords(100, "one hundred");
+        assertNumberInWords(101, "one hundred and one");
+        assertNumberInWords(110, "one hundred and ten");
+//       assertNumberInWords(156, "one hundred and fifty six");
 
     }
+
 
     @Test
     public void testShouldNotConvertNumbersOutsideRange() throws Exception {
