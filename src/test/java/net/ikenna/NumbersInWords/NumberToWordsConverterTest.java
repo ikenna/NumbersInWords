@@ -84,7 +84,10 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(10111, "ten thousand one hundred and eleven");
         assertNumberInWords(99000, "ninety nine thousand");
         assertNumberInWords(99999, "ninety nine thousand nine hundred and ninety nine");
+
+        assertNumberInWords(900999, "nine hundred thousand nine hundred and ninety nine");
     }
+
 
     @Test
     public void testShouldNotConvertNumbersOutsideRange() throws Exception {

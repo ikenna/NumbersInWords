@@ -6,14 +6,11 @@ class NumberInTheHundreds implements NumberWordPattern {
 
     @Override
     public String convertToWords(Integer number) {
-        if (twoWordNumbers.matches(number)) {
-            return twoWordNumbers.convertToWords(number);
-        } else {
-            int remainder = number % 100;
-            int multipleOfHundred = number - remainder;
-            String result = getNumberOfHundreds(multipleOfHundred) + getRemainder(remainder);
-            return result.trim();
-        }
+        assert (number < 1000);
+        int remainder = number % 100;
+        int multipleOfHundred = number - remainder;
+        String result = getNumberOfHundreds(multipleOfHundred) + getRemainder(remainder);
+        return result.trim();
     }
 
     private String getRemainder(int remainder) {

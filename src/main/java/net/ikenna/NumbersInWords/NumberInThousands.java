@@ -2,7 +2,10 @@ package net.ikenna.NumbersInWords;
 
 class NumberInThousands implements NumberWordPattern {
 
-    private NumberInTheHundreds hundredsPattern = new NumberInTheHundreds();
+    @Override
+    public boolean matches(Integer number) {
+        return 1000 <= number && number <= 99999;
+    }
 
     @Override
     public String convertToWords(Integer number) {
@@ -12,19 +15,19 @@ class NumberInThousands implements NumberWordPattern {
     }
 
     private String getNumberOfThousands(Integer number) {
-        return new TwoWordNumbersBetween20And100().convertToWords(number / 1000) + " thousand";
+        if (number > 0) {
+            int twoWordNumber = number / 1000;
+            return new TwoWordNumbersBetween20And100().convertToWords(twoWordNumber) + " thousand";
+        }
+        return "";
     }
 
     private String getRemainder(Integer remainder) {
         if (remainder > 0) {
-            return " " + hundredsPattern.convertToWords(remainder);
+            return " " + new NumberInTheHundreds().convertToWords(remainder);
         } else {
             return "";
         }
     }
 
-    @Override
-    public boolean matches(Integer number) {
-        return 1000 <= number && number <= 99999;
-    }
 }
