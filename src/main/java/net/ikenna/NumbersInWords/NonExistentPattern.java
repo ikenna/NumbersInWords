@@ -1,6 +1,6 @@
 package net.ikenna.numbersInWords;
 
-class NonExistentPattern implements NumberWordPattern {
+public class NonExistentPattern implements NumberWordPattern {
 
     @Override
     public String convertToWords(Integer number) {

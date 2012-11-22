@@ -1,6 +1,6 @@
 package net.ikenna.numbersInWords;
 
-class FiveDigits extends AbstractWordPattern {
+public class FiveDigits extends AbstractWordPattern {
 
     public FiveDigits() {
         super(new NumberRange(10000, 99999), 1000);

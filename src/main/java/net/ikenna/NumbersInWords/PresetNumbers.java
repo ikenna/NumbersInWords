@@ -3,7 +3,7 @@ package net.ikenna.numbersInWords;
 import java.util.HashMap;
 import java.util.Map;
 
-class PresetNumbers implements NumberWordPattern {
+public class PresetNumbers implements NumberWordPattern {
     private final Map<Integer, String> wordMap;
 
     public PresetNumbers() {

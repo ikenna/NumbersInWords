@@ -1,6 +1,6 @@
 package net.ikenna.numbersInWords;
 
-class ThreeDigits extends AbstractWordPattern {
+public class ThreeDigits extends AbstractWordPattern {
 
     public ThreeDigits() {
         super(new NumberRange(100, 999), 100);

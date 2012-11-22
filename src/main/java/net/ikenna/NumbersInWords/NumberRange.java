@@ -1,6 +1,6 @@
 package net.ikenna.numbersInWords;
 
-class NumberRange {
+public class NumberRange {
     private final Integer min;
     private final Integer max;
 
