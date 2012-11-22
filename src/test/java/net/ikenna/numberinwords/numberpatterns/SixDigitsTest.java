@@ -1,6 +1,5 @@
-package net.ikenna.numberinwords;
+package net.ikenna.numberinwords.numberpatterns;
 
-import net.ikenna.numberinwords.numberpatterns.SixDigits;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
