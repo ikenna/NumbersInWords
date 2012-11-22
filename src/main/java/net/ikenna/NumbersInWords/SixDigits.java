@@ -7,12 +7,12 @@ public class SixDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return new ThreeDigits().convertToWords(mainNumber / divisor) + " thousand ";
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         return new ThreeDigits().convertToWords(remainder);
     }
 

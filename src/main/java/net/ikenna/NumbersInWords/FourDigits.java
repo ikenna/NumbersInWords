@@ -6,12 +6,12 @@ public class FourDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return new PresetNumbers().convertToWords(mainNumber / divisor) + " thousand ";
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         return new ThreeDigits().convertToWords(remainder);
     }
 }

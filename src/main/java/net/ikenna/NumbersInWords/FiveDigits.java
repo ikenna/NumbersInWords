@@ -7,12 +7,12 @@ class FiveDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return new DoubleDigits().convertToWords(mainNumber / divisor) + " thousand ";
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         return new FourDigits().convertToWords(remainder);
     }
 

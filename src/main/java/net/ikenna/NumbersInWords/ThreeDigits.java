@@ -9,12 +9,12 @@ class ThreeDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return new PresetNumbers().convertToWords(mainNumber / divisor) + " hundred";
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         String doubleInWords = new DoubleDigits().convertToWords(remainder);
         StringBuilder result = new StringBuilder();
         if (remainder > 0) {

@@ -19,12 +19,12 @@ public class DoubleDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return presetNumbers.convertToWords(mainNumber);
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         return SPACE + presetNumbers.convertToWords(remainder);
     }
 

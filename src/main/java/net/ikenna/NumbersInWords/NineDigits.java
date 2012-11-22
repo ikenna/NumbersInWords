@@ -6,12 +6,12 @@ public class NineDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(Integer mainNumber) {
+    protected String getMainNumberInWords(Integer mainNumber) {
         return new ThreeDigits().convertToWords(mainNumber / divisor) + " million ";
     }
 
     @Override
-    protected String getRemainder(Integer remainder) {
+    protected String getRemainderInWords(Integer remainder) {
         return new SevenDigits().convertToWords(remainder);
     }
 }

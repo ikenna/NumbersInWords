@@ -20,18 +20,21 @@ public abstract class AbstractWordPattern implements NumberWordPattern {
         range.assertNumberDoesNotExceedMax(number);
         int remainder = number % divisor;
         int mainNumber = number - remainder;
+        String mainNumberInWords = getMainNumberInWords(mainNumber);
+        String remainderInWords = getRemainderInWords(remainder);
+
         StringBuilder result = new StringBuilder();
         if (mainNumber > 0) {
-            result.append(getMainNumber(mainNumber));
+            result.append(mainNumberInWords);
         }
         if (remainder > 0) {
-            result.append(getRemainder(remainder));
+            result.append(remainderInWords);
         }
         return result.toString().trim();
     }
 
-    abstract protected String getMainNumber(Integer mainNumber);
+    abstract protected String getMainNumberInWords(Integer mainNumber);
 
-    abstract protected String getRemainder(Integer remainder);
+    abstract protected String getRemainderInWords(Integer remainder);
 }
 
