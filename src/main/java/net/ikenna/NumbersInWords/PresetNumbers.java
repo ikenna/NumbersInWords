@@ -44,11 +44,6 @@ class PresetNumbers implements NumberWordPattern {
 
     @Override
     public String convertToWords(Integer number) {
-        String value = wordMap.get(number);
-        if (value == null) {
-            throw new RuntimeException("Can't convert " + number);
-        } else {
-            return value;
-        }
+        return number == 0 ? "" : wordMap.get(number);
     }
 }

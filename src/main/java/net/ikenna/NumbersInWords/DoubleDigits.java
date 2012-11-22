@@ -1,7 +1,5 @@
 package net.ikenna.NumbersInWords;
 
-import static net.ikenna.NumbersInWords.FormattingElements.SPACE;
-
 public class DoubleDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();
 
@@ -25,7 +23,7 @@ public class DoubleDigits extends AbstractWordPattern {
 
     @Override
     protected String getRemainderInWords(Integer remainder) {
-        return SPACE + presetNumbers.convertToWords(remainder);
+        return " " + presetNumbers.convertToWords(remainder);
     }
 
 }
