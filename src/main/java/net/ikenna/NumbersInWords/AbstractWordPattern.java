@@ -19,8 +19,14 @@ public abstract class AbstractWordPattern implements NumberWordPattern {
         assert (number <= MAX);
         int remainder = number % MIN;
         int mainNumber = number - remainder;
-        String result = getMainNumber(mainNumber) + getRemainder(remainder);
-        return result.trim();
+        StringBuilder result = new StringBuilder();
+        if (mainNumber > 0) {
+            result.append(getMainNumber(mainNumber));
+        }
+        if (remainder > 0) {
+            result.append(getRemainder(remainder));
+        }
+        return result.toString().trim();
     }
 
     abstract protected String getMainNumber(int mainNumber);

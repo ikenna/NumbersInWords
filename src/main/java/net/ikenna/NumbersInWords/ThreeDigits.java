@@ -10,8 +10,7 @@ class ThreeDigits extends AbstractWordPattern {
 
     @Override
     protected String getMainNumber(int mainNumber) {
-        Integer multipleOfHundred = mainNumber / MIN;
-        return new PresetNumbers().convertToWords(multipleOfHundred) + " hundred";
+        return new PresetNumbers().convertToWords(mainNumber / MIN) + " hundred";
     }
 
     @Override
@@ -24,3 +23,5 @@ class ThreeDigits extends AbstractWordPattern {
         return result.append(doubleInWords).toString();
     }
 }
+
+
