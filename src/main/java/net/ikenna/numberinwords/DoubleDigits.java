@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public class DoubleDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();
 

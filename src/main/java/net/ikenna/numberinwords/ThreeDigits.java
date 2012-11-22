@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public class ThreeDigits extends AbstractWordPattern {
 
     public ThreeDigits() {

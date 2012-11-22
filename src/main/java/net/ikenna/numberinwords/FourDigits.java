@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public class FourDigits extends AbstractWordPattern {
     public FourDigits() {
         super(new NumberRange(1000, 9999), 1000);

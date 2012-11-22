@@ -1,10 +1,10 @@
-package net.ikenna.numberinwords;
+package net.ikenna.numberinwords.numberpatterns;
 
 public class NumberRange {
     private final Integer min;
     private final Integer max;
 
-    NumberRange(Integer min, Integer max) {
+    public NumberRange(Integer min, Integer max) {
         this.min = min;
         this.max = max;
     }

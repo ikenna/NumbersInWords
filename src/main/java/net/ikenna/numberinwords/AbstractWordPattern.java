@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public abstract class AbstractWordPattern implements NumberWordPattern {
 
     private final NumberRange range;

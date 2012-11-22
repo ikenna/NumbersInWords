@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public class SixDigits extends AbstractWordPattern {
 
     public SixDigits() {

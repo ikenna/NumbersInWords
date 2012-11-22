@@ -1,5 +1,7 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.NumberRange;
+
 public class EightDigits extends AbstractWordPattern {
     public EightDigits() {
         super(new NumberRange(10000000, 99999999), 1000000);
