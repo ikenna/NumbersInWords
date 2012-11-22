@@ -1,6 +1,6 @@
 package net.ikenna.numberinwords.numberpatterns;
 
-public class NumberRange {
+class NumberRange {
     private final Integer min;
     private final Integer max;
 

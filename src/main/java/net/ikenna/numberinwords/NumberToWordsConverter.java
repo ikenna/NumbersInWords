@@ -14,7 +14,7 @@ import static java.util.Arrays.asList;
  */
 public class NumberToWordsConverter {
 
-    private List<? extends NumberWordPattern> numberWordPatterns = asList(
+    private final List<? extends NumberWordPattern> numberWordPatterns = asList(
             new PresetNumbers(),
             new TwoDigits(),
             new ThreeDigits(),

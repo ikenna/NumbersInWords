@@ -5,7 +5,7 @@ public abstract class AbstractWordPattern implements NumberWordPattern {
     private final NumberRange range;
     protected final Integer divisor;
 
-    public AbstractWordPattern(NumberRange range, Integer divisor) {
+    AbstractWordPattern(NumberRange range, Integer divisor) {
         this.range = range;
         this.divisor = divisor;
     }
