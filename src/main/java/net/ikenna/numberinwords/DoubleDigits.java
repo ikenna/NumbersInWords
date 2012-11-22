@@ -1,4 +1,4 @@
-package net.ikenna.numbersInWords;
+package net.ikenna.numberinwords;
 
 public class DoubleDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();

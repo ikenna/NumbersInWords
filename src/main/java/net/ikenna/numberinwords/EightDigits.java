@@ -1,4 +1,4 @@
-package net.ikenna.numbersInWords;
+package net.ikenna.numberinwords;
 
 public class EightDigits extends AbstractWordPattern {
     public EightDigits() {

@@ -1,4 +1,4 @@
-package net.ikenna.numbersInWords;
+package net.ikenna.numberinwords;
 
 interface NumberWordPattern {
 
