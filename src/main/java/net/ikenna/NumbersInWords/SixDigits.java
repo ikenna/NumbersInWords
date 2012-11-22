@@ -3,7 +3,7 @@ package net.ikenna.NumbersInWords;
 public class SixDigits extends AbstractWordPattern {
 
     public SixDigits() {
-        super(100000, 999999, 1000);
+        super(new NumberRange(100000, 999999), 1000);
     }
 
     @Override

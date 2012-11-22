@@ -2,7 +2,7 @@ package net.ikenna.NumbersInWords;
 
 interface NumberWordPattern {
 
-    boolean matches(Integer number);
+    boolean isInRange(Integer number);
 
     String convertToWords(Integer number);
 }

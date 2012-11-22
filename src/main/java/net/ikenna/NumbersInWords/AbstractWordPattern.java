@@ -1,24 +1,23 @@
 package net.ikenna.NumbersInWords;
 
 public abstract class AbstractWordPattern implements NumberWordPattern {
-    protected final Integer min;
-    protected final Integer max;
+
+    private final NumberRange range;
     protected final Integer divisor;
 
-    public AbstractWordPattern(Integer min, Integer max, Integer divisor) {
-        this.min = min;
-        this.max = max;
+    public AbstractWordPattern(NumberRange range, Integer divisor) {
+        this.range = range;
         this.divisor = divisor;
     }
 
     @Override
-    public boolean matches(Integer number) {
-        return min <= number && number <= max;
+    public boolean isInRange(Integer number) {
+        return range.matches(number);
     }
 
     @Override
     public String convertToWords(Integer number) {
-        assert (number <= max);
+        range.assertNumberDoesNotExceedMax(number);
         int remainder = number % divisor;
         int mainNumber = number - remainder;
         StringBuilder result = new StringBuilder();
@@ -34,4 +33,24 @@ public abstract class AbstractWordPattern implements NumberWordPattern {
     abstract protected String getMainNumber(Integer mainNumber);
 
     abstract protected String getRemainder(Integer remainder);
+}
+
+class NumberRange {
+    private final Integer min;
+    private final Integer max;
+
+    NumberRange(Integer min, Integer max) {
+        this.min = min;
+        this.max = max;
+    }
+
+    public boolean matches(Integer number) {
+        return min <= number && number <= max;
+    }
+
+    public void assertNumberDoesNotExceedMax(Integer number) {
+        if (number > max) {
+            throw new RuntimeException("Number exceeds max range");
+        }
+    }
 }

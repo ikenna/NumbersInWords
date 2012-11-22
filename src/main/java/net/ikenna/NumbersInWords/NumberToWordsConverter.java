@@ -21,7 +21,7 @@ public class NumberToWordsConverter {
     private NumberWordPattern getPatternFor(Integer number) {
         NumberWordPattern result = null;
         for (NumberWordPattern pattern : numberWordPatterns) {
-            if (pattern.matches(number)) {
+            if (pattern.isInRange(number)) {
                 result = pattern;
             }
         }

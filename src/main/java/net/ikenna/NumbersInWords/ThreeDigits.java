@@ -5,7 +5,7 @@ import static net.ikenna.NumbersInWords.FormattingElements.AND;
 class ThreeDigits extends AbstractWordPattern {
 
     public ThreeDigits() {
-        super(100, 999, 100);
+        super(new NumberRange(100, 999), 100);
     }
 
     @Override

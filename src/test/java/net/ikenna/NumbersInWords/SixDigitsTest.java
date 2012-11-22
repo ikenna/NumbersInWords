@@ -9,10 +9,10 @@ public class SixDigitsTest {
 
     @Test
     public void testShouldMatchNumbersInRange() throws Exception {
-        assertThat(new SixDigits().matches(99999), is(false));
-        assertThat(new SixDigits().matches(100000), is(true));
-        assertThat(new SixDigits().matches(999999), is(true));
-        assertThat(new SixDigits().matches(1000000), is(false));
+        assertThat(new SixDigits().isInRange(99999), is(false));
+        assertThat(new SixDigits().isInRange(100000), is(true));
+        assertThat(new SixDigits().isInRange(999999), is(true));
+        assertThat(new SixDigits().isInRange(1000000), is(false));
     }
 
     @Test

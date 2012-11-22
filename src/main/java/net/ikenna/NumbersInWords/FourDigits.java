@@ -2,7 +2,7 @@ package net.ikenna.NumbersInWords;
 
 public class FourDigits extends AbstractWordPattern {
     public FourDigits() {
-        super(1000, 9999, 1000);
+        super(new NumberRange(1000, 9999), 1000);
     }
 
     @Override

@@ -9,10 +9,10 @@ public class DoubleDigitsTest {
 
     @Test
     public void testShouldMatchNumbersInRange() throws Exception {
-        assertThat(new DoubleDigits().matches(9), is(false));
-        assertThat(new DoubleDigits().matches(10), is(true));
-        assertThat(new DoubleDigits().matches(99), is(true));
-        assertThat(new DoubleDigits().matches(100), is(false));
+        assertThat(new DoubleDigits().isInRange(9), is(false));
+        assertThat(new DoubleDigits().isInRange(10), is(true));
+        assertThat(new DoubleDigits().isInRange(99), is(true));
+        assertThat(new DoubleDigits().isInRange(100), is(false));
     }
 
 

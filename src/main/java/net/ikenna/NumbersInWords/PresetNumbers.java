@@ -38,12 +38,17 @@ class PresetNumbers implements NumberWordPattern {
     }
 
     @Override
-    public boolean matches(Integer number) {
+    public boolean isInRange(Integer number) {
         return wordMap.get(number) != null;
     }
 
     @Override
     public String convertToWords(Integer number) {
-        return number == 0 ? "" : wordMap.get(number);
+        String value = wordMap.get(number);
+        if (value == null) {
+            throw new RuntimeException("Can't convert " + number);
+        } else {
+            return value;
+        }
     }
 }

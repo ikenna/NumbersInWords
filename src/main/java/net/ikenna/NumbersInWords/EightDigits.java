@@ -1,13 +1,13 @@
 package net.ikenna.NumbersInWords;
 
-public class SevenDigits extends AbstractWordPattern {
-    public SevenDigits() {
-        super(new NumberRange(1000000, 9999999), 1000000);
+public class EightDigits extends AbstractWordPattern {
+    public EightDigits() {
+        super(new NumberRange(10000000, 99999999), 1000000);
     }
 
     @Override
     protected String getMainNumber(Integer mainNumber) {
-        return new PresetNumbers().convertToWords(mainNumber / divisor) + " million ";
+        return new DoubleDigits().convertToWords(mainNumber / divisor) + " million ";
     }
 
     @Override

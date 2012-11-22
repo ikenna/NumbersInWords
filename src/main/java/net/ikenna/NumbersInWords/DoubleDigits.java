@@ -6,12 +6,12 @@ public class DoubleDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();
 
     public DoubleDigits() {
-        super(10, 99, 10);
+        super(new NumberRange(10, 99), 10);
     }
 
     @Override
     public String convertToWords(Integer number) {
-        if (presetNumbers.matches(number)) {
+        if (presetNumbers.isInRange(number)) {
             return presetNumbers.convertToWords(number);
         } else {
             return super.convertToWords(number);

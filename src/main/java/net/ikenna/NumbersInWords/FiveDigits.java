@@ -3,7 +3,7 @@ package net.ikenna.NumbersInWords;
 class FiveDigits extends AbstractWordPattern {
 
     public FiveDigits() {
-        super(10000, 99999, 1000);
+        super(new NumberRange(10000, 99999), 1000);
     }
 
     @Override

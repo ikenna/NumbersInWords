@@ -9,8 +9,8 @@ public class PresetNumbersTest {
 
     @Test
     public void testShouldMatchNumbersInMap() throws Exception {
-        assertThat(new PresetNumbers().matches(11), is(true));
-        assertThat(new PresetNumbers().matches(21), is(false));
+        assertThat(new PresetNumbers().isInRange(11), is(true));
+        assertThat(new PresetNumbers().isInRange(21), is(false));
     }
 
     @Test

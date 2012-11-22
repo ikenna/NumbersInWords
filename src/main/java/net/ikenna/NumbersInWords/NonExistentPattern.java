@@ -8,7 +8,7 @@ class NonExistentPattern implements NumberWordPattern {
     }
 
     @Override
-    public boolean matches(Integer number) {
+    public boolean isInRange(Integer number) {
         return false;
     }
 }
