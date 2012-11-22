@@ -1,6 +1,8 @@
 package net.ikenna.numberinwords;
 
 
+import net.ikenna.numberinwords.numberpatterns.*;
+
 import java.util.List;
 
 import static java.util.Arrays.asList;

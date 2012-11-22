@@ -1,6 +1,4 @@
-package net.ikenna.numberinwords;
-
-import net.ikenna.numberinwords.numberpatterns.NumberRange;
+package net.ikenna.numberinwords.numberpatterns;
 
 public class NineDigits extends AbstractWordPattern {
     public NineDigits() {

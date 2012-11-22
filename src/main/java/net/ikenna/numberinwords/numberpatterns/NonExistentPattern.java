@@ -1,4 +1,4 @@
-package net.ikenna.numberinwords;
+package net.ikenna.numberinwords.numberpatterns;
 
 public class NonExistentPattern implements NumberWordPattern {
 

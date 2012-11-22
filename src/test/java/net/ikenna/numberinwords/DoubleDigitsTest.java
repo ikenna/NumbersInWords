@@ -1,5 +1,6 @@
 package net.ikenna.numberinwords;
 
+import net.ikenna.numberinwords.numberpatterns.DoubleDigits;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;

@@ -30,8 +30,6 @@ public class NumberToWordsConverterTest {
         assertNumberInWords(-1, "Don't know how to convert -1 to words");
     }
 
-    // remmber to comment your code
-
 
     private void assertNumberInWords(int number, String numberInWords) {
         String actual = new NumberToWordsConverter().convert(number);

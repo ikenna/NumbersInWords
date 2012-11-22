@@ -1,6 +1,6 @@
-package net.ikenna.numberinwords;
+package net.ikenna.numberinwords.numberpatterns;
 
-interface NumberWordPattern {
+public interface NumberWordPattern {
 
     boolean isInRange(Integer number);
 

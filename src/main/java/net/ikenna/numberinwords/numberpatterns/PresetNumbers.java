@@ -1,4 +1,4 @@
-package net.ikenna.numberinwords;
+package net.ikenna.numberinwords.numberpatterns;
 
 import java.util.HashMap;
 import java.util.Map;
