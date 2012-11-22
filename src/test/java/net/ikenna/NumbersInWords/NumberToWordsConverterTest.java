@@ -8,86 +8,21 @@ import static org.junit.Assert.assertThat;
 public class NumberToWordsConverterTest {
 
     @Test
-    public void testShouldConvertSingleDigits() throws Exception {
+    public void testShouldConvertNumbers() throws Exception {
         assertNumberInWords(1, "one");
-        assertNumberInWords(2, "two");
-        assertNumberInWords(3, "three");
-        assertNumberInWords(4, "four");
-        assertNumberInWords(5, "five");
-        assertNumberInWords(6, "six");
-        assertNumberInWords(7, "seven");
-        assertNumberInWords(8, "eight");
         assertNumberInWords(9, "nine");
-
-
-    }
-
-    @Test
-    public void testShouldConvertDoubleDigits() throws Exception {
         assertNumberInWords(10, "ten");
-        assertNumberInWords(11, "eleven");
-        assertNumberInWords(12, "twelve");
-        assertNumberInWords(13, "thirteen");
-        assertNumberInWords(14, "fourteen");
-        assertNumberInWords(15, "fifteen");
-        assertNumberInWords(16, "sixteen");
-        assertNumberInWords(17, "seventeen");
-        assertNumberInWords(18, "eighteen");
-        assertNumberInWords(19, "nineteen");
-        assertNumberInWords(20, "twenty");
-
         assertNumberInWords(21, "twenty one");
-        assertNumberInWords(22, "twenty two");
-        assertNumberInWords(23, "twenty three");
-        assertNumberInWords(24, "twenty four");
-        assertNumberInWords(29, "twenty nine");
-
-        assertNumberInWords(30, "thirty");
-        assertNumberInWords(31, "thirty one");
-        assertNumberInWords(32, "thirty two");
-        assertNumberInWords(39, "thirty nine");
-
-        assertNumberInWords(40, "forty");
-        assertNumberInWords(41, "forty one");
-        assertNumberInWords(49, "forty nine");
-
-    }
-
-
-    @Test
-    public void testShouldConvertNumbersInHundreds() throws Exception {
-        assertNumberInWords(100, "one hundred");
-        assertNumberInWords(101, "one hundred and one");
-        assertNumberInWords(111, "one hundred and eleven");
-        assertNumberInWords(110, "one hundred and ten");
-        assertNumberInWords(156, "one hundred and fifty six");
-        assertNumberInWords(199, "one hundred and ninety nine");
-        assertNumberInWords(200, "two hundred");
-        assertNumberInWords(577, "five hundred and seventy seven");
+        assertNumberInWords(99, "ninety nine");
+        assertNumberInWords(105, "one hundred and five");
         assertNumberInWords(999, "nine hundred and ninety nine");
-    }
-
-    @Test
-    public void testShouldConvertThousands() throws Exception {
-        assertNumberInWords(1000, "one thousand");
-        assertNumberInWords(1001, "one thousand and one");
-        assertNumberInWords(1010, "one thousand and ten");
-        assertNumberInWords(1100, "one thousand one hundred");
-        assertNumberInWords(1101, "one thousand one hundred and one");
-        assertNumberInWords(1110, "one thousand one hundred and ten");
-        assertNumberInWords(2000, "two thousand");
-        assertNumberInWords(9000, "nine thousand");
-        assertNumberInWords(10000, "ten thousand");
-        assertNumberInWords(10100, "ten thousand one hundred");
-        assertNumberInWords(10100, "ten thousand one hundred");
-        assertNumberInWords(10101, "ten thousand one hundred and one");
-        assertNumberInWords(10111, "ten thousand one hundred and eleven");
-        assertNumberInWords(99000, "ninety nine thousand");
         assertNumberInWords(99999, "ninety nine thousand nine hundred and ninety nine");
-
         assertNumberInWords(900999, "nine hundred thousand nine hundred and ninety nine");
+        assertNumberInWords(9999999, "nine million nine hundred and ninety nine thousand nine hundred and ninety nine");
+        assertNumberInWords(56945781, "fifty six million nine hundred and forty five thousand seven hundred and eighty one");
+        assertNumberInWords(99999999, "ninety nine million nine hundred and ninety nine thousand nine hundred and ninety nine");
+        assertNumberInWords(999999999, "nine hundred and ninety nine million nine hundred and ninety nine thousand nine hundred and ninety nine");
     }
-
 
     @Test
     public void testShouldNotConvertNumbersOutsideRange() throws Exception {
@@ -96,7 +31,7 @@ public class NumberToWordsConverterTest {
     }
 
     // remmber to comment your code
-    // Introduce range object
+
 
     private void assertNumberInWords(int number, String numberInWords) {
         String actual = new NumberToWordsConverter().convert(number);

@@ -7,11 +7,16 @@ import static java.util.Arrays.asList;
 
 public class NumberToWordsConverter {
 
-    private List<? extends NumberWordPattern> numberWordPatterns;
-
-    public NumberToWordsConverter() {
-        numberWordPatterns = asList(new PresetNumbers(), new DoubleDigits(), new ThreeDigits(), new FiveDigits(), new SixDigits());
-    }
+    private List<? extends NumberWordPattern> numberWordPatterns = asList(
+            new PresetNumbers(),
+            new DoubleDigits(),
+            new ThreeDigits(),
+            new FourDigits(),
+            new FiveDigits(),
+            new SixDigits(),
+            new SevenDigits(),
+            new EightDigits(),
+            new NineDigits());
 
     public String convert(Integer number) {
         NumberWordPattern pattern = getPatternFor(number);
