@@ -7,6 +7,11 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
+/**
+ * This NumberToWordsConverter class converts numbers from 1 to 999,999,999 to words.
+ *
+ * @author Ikenna Nwaiwu
+ */
 public class NumberToWordsConverter {
 
     private List<? extends NumberWordPattern> numberWordPatterns = asList(
