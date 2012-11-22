@@ -1,9 +1,9 @@
 package net.ikenna.numberinwords.numberpatterns;
 
-public class DoubleDigits extends AbstractWordPattern {
+public class TwoDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();
 
-    public DoubleDigits() {
+    public TwoDigits() {
         super(new NumberRange(10, 99), 10);
     }
 

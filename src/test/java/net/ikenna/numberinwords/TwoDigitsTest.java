@@ -1,19 +1,19 @@
 package net.ikenna.numberinwords;
 
-import net.ikenna.numberinwords.numberpatterns.DoubleDigits;
+import net.ikenna.numberinwords.numberpatterns.TwoDigits;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class DoubleDigitsTest {
+public class TwoDigitsTest {
 
     @Test
     public void testShouldMatchNumbersInRange() throws Exception {
-        assertThat(new DoubleDigits().isInRange(9), is(false));
-        assertThat(new DoubleDigits().isInRange(10), is(true));
-        assertThat(new DoubleDigits().isInRange(99), is(true));
-        assertThat(new DoubleDigits().isInRange(100), is(false));
+        assertThat(new TwoDigits().isInRange(9), is(false));
+        assertThat(new TwoDigits().isInRange(10), is(true));
+        assertThat(new TwoDigits().isInRange(99), is(true));
+        assertThat(new TwoDigits().isInRange(100), is(false));
     }
 
 
@@ -43,7 +43,7 @@ public class DoubleDigitsTest {
     }
 
     private void assertNumberInWords(int number, String numberInWords) {
-        String actual = new DoubleDigits().convertToWords(number);
+        String actual = new TwoDigits().convertToWords(number);
         assertThat(actual, is(numberInWords));
     }
 }

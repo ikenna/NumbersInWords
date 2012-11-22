@@ -13,7 +13,7 @@ public class ThreeDigits extends AbstractWordPattern {
 
     @Override
     protected String getRemainderInWords(Integer remainder) {
-        String doubleInWords = new DoubleDigits().convertToWords(remainder);
+        String doubleInWords = new TwoDigits().convertToWords(remainder);
         StringBuilder result = new StringBuilder();
         if (remainder > 0) {
             result.append(" and ");

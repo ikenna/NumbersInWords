@@ -11,7 +11,7 @@ public class NumberToWordsConverter {
 
     private List<? extends NumberWordPattern> numberWordPatterns = asList(
             new PresetNumbers(),
-            new DoubleDigits(),
+            new TwoDigits(),
             new ThreeDigits(),
             new FourDigits(),
             new FiveDigits(),

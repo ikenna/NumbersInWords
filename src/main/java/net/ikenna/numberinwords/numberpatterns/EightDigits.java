@@ -7,7 +7,7 @@ public class EightDigits extends AbstractWordPattern {
 
     @Override
     protected String getMainNumberInWords(Integer mainNumber) {
-        return new DoubleDigits().convertToWords(mainNumber / divisor) + " million ";
+        return new TwoDigits().convertToWords(mainNumber / divisor) + " million ";
     }
 
     @Override
