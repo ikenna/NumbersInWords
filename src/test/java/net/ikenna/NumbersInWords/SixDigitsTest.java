@@ -5,14 +5,14 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class HundredsOfThousandsTest {
+public class SixDigitsTest {
 
     @Test
     public void testShouldMatchNumbersInRange() throws Exception {
-        assertThat(new HundredsOfThousands().matches(99999), is(false));
-        assertThat(new HundredsOfThousands().matches(100000), is(true));
-        assertThat(new HundredsOfThousands().matches(999999), is(true));
-        assertThat(new HundredsOfThousands().matches(1000000), is(false));
+        assertThat(new SixDigits().matches(99999), is(false));
+        assertThat(new SixDigits().matches(100000), is(true));
+        assertThat(new SixDigits().matches(999999), is(true));
+        assertThat(new SixDigits().matches(1000000), is(false));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class HundredsOfThousandsTest {
     }
 
     private void assertNumberInWords(int number, String value) {
-        String result = new HundredsOfThousands().convertToWords(number);
+        String result = new SixDigits().convertToWords(number);
         assertThat(result, is(value));
     }
 }

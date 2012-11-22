@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class TensOfThousandsTest {
+public class FiveDigitsTest {
 
     @Test
     public void testShouldConvertTensOfThousands() throws Exception {
@@ -19,7 +19,7 @@ public class TensOfThousandsTest {
     }
 
     private void assertNumberInWords(int number, String words) {
-        String result = new TensOfThousands().convertToWords(number);
+        String result = new FiveDigits().convertToWords(number);
         assertThat(result, is(words));
     }
 }

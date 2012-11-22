@@ -6,7 +6,7 @@ public class DoubleDigits extends AbstractWordPattern {
     private final PresetNumbers presetNumbers = new PresetNumbers();
 
     public DoubleDigits() {
-        super(10, 99);
+        super(10, 99, 10);
     }
 
     @Override
@@ -19,12 +19,12 @@ public class DoubleDigits extends AbstractWordPattern {
     }
 
     @Override
-    protected String getMainNumber(int mainNumber) {
+    protected String getMainNumber(Integer mainNumber) {
         return presetNumbers.convertToWords(mainNumber);
     }
 
     @Override
-    protected String getRemainder(int remainder) {
+    protected String getRemainder(Integer remainder) {
         return SPACE + presetNumbers.convertToWords(remainder);
     }
 

@@ -1,23 +1,25 @@
 package net.ikenna.NumbersInWords;
 
 public abstract class AbstractWordPattern implements NumberWordPattern {
-    protected final Integer MIN;
-    protected final Integer MAX;
+    protected final Integer min;
+    protected final Integer max;
+    protected final Integer divisor;
 
-    public AbstractWordPattern(Integer min, Integer max) {
-        MIN = min;
-        MAX = max;
+    public AbstractWordPattern(Integer min, Integer max, Integer divisor) {
+        this.min = min;
+        this.max = max;
+        this.divisor = divisor;
     }
 
     @Override
     public boolean matches(Integer number) {
-        return MIN <= number && number <= MAX;
+        return min <= number && number <= max;
     }
 
     @Override
     public String convertToWords(Integer number) {
-        assert (number <= MAX);
-        int remainder = number % MIN;
+        assert (number <= max);
+        int remainder = number % divisor;
         int mainNumber = number - remainder;
         StringBuilder result = new StringBuilder();
         if (mainNumber > 0) {
@@ -29,7 +31,7 @@ public abstract class AbstractWordPattern implements NumberWordPattern {
         return result.toString().trim();
     }
 
-    abstract protected String getMainNumber(int mainNumber);
+    abstract protected String getMainNumber(Integer mainNumber);
 
-    abstract protected String getRemainder(int remainder);
+    abstract protected String getRemainder(Integer remainder);
 }

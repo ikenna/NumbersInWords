@@ -5,16 +5,16 @@ import static net.ikenna.NumbersInWords.FormattingElements.AND;
 class ThreeDigits extends AbstractWordPattern {
 
     public ThreeDigits() {
-        super(100, 999);
+        super(100, 999, 100);
     }
 
     @Override
-    protected String getMainNumber(int mainNumber) {
-        return new PresetNumbers().convertToWords(mainNumber / MIN) + " hundred";
+    protected String getMainNumber(Integer mainNumber) {
+        return new PresetNumbers().convertToWords(mainNumber / divisor) + " hundred";
     }
 
     @Override
-    protected String getRemainder(int remainder) {
+    protected String getRemainder(Integer remainder) {
         String doubleInWords = new DoubleDigits().convertToWords(remainder);
         StringBuilder result = new StringBuilder();
         if (remainder > 0) {

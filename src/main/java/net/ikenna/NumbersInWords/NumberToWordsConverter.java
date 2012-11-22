@@ -10,7 +10,7 @@ public class NumberToWordsConverter {
     private List<? extends NumberWordPattern> numberWordPatterns;
 
     public NumberToWordsConverter() {
-        numberWordPatterns = asList(new PresetNumbers(), new DoubleDigits(), new ThreeDigits(), new TensOfThousands(), new HundredsOfThousands());
+        numberWordPatterns = asList(new PresetNumbers(), new DoubleDigits(), new ThreeDigits(), new FiveDigits(), new SixDigits());
     }
 
     public String convert(Integer number) {

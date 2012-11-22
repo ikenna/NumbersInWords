@@ -96,6 +96,7 @@ public class NumberToWordsConverterTest {
     }
 
     // remmber to comment your code
+    // Introduce range object
 
     private void assertNumberInWords(int number, String numberInWords) {
         String actual = new NumberToWordsConverter().convert(number);
