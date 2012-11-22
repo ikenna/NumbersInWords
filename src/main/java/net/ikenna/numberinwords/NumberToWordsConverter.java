@@ -26,13 +26,13 @@ public class NumberToWordsConverter {
     }
 
     private NumberWordPattern getPatternFor(Integer number) {
-        NumberWordPattern result = null;
+        NumberWordPattern result = new NonExistentPattern();
         for (NumberWordPattern pattern : numberWordPatterns) {
             if (pattern.isInRange(number)) {
                 result = pattern;
             }
         }
-        return result == null ? new NonExistentPattern() : result;
+        return result;
     }
 
 }
